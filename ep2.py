@@ -1,6 +1,5 @@
 import numpy as np
 import os
-import numpy as np
 from moving_average import *
 import matplotlib.pyplot as plt
 
