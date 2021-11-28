@@ -4,12 +4,10 @@ from moving_average import *
 import matplotlib.pyplot as plt
 
 file_num = input('Введите номер файла: ')
-with open(os.path.join('signals', f'signal0{file_num}.dat')) as f:
-    sig = filter(lambda x: x, f.read().split('\n'))
-    sig = np.array([float(i) for i in sig])
+sig = np.genfromtxt(os.path.join('signals', f'signal0{file_num}.dat'),  delimiter="\n")
 
 fig, axs = plt.subplots(1, 2)
-x = [i for i in range(sig.size)]
+x = np.arange(sig.size)
 axs[0].plot(x, sig)
 axs[0].minorticks_on()
 axs[0].grid(which='major',

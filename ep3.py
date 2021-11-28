@@ -15,15 +15,9 @@ def animate(i):
     return line,
 
 
-fig = plt.figure()
-ax = plt.axes(xlim=(0, 50), ylim=(0, 10))
-line, = ax.plot([], [], lw=3)
+u = np.array([np.genfromtxt('func_u_start.txt',  delimiter="\n")])
 
-with open('func_u_start.txt', 'r') as f:
-    u = filter(lambda x: x, f.read().split('\n'))
-
-u = np.array([[float(i) for i in u]])
-x = [i for i in range(u[0].size)]
+x = np.arange(u[0].size)
 
 fig = plt.figure()
 ax = plt.axes(xlim=(min(x), max(x)), ylim=(min(u[0]), max(u[0])))
